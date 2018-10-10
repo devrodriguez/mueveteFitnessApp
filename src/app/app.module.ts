@@ -9,13 +9,15 @@ import { TrainersPage } from  '../pages/trainers/trainers';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TrainerPage } from '../pages/trainer/trainer';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    TrainersPage
+    TrainerPage,
+    TrainersPage,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
+    TrainerPage,
     TrainersPage
   ],
   providers: [

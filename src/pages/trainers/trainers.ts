@@ -27,8 +27,10 @@ export class TrainersPage {
     console.log('ionViewDidLoad TrainersPage');
   }
 
-  viewTrainerInfo() {
-    this.navCtrl.push(TrainerPage);
+  viewTrainerInfo(trainer:any) {
+    this.navCtrl.push(TrainerPage, {
+      trainer: trainer
+    });
   }
 
 }
