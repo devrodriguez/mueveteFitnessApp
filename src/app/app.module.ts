@@ -5,13 +5,19 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { TrainersPage } from  '../pages/trainers/trainers';
+import { HttpClientModule } from '@angular/common/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+// Pages
 import { TrainerPage } from '../pages/trainer/trainer';
 import { ContactoPage } from '../pages/contacto/contacto';
+import { TrainersPage } from  '../pages/trainers/trainers';
 import { ProductsPage } from '../pages/products/products';
+
+// Providers
+import { TrainerProvider } from '../providers/trainer/trainer';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,7 @@ import { ProductsPage } from '../pages/products/products';
     TrainersPage,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -38,7 +45,8 @@ import { ProductsPage } from '../pages/products/products';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TrainerProvider
   ]
 })
 export class AppModule {}

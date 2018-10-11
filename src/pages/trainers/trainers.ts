@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Nav, NavController, NavParams } from 'ionic-angular';
 import { TrainerPage } from '../trainer/trainer';
+import { TrainerProvider } from '../../providers/trainer/trainer';
 
 /**
  * Generated class for the TrainersPage page.
@@ -17,14 +18,21 @@ export class TrainersPage {
   
   public trainers: any = new Array();
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.trainers.push({ name: 'John Edisson Rodriguez', profession: 'Personal Trainer', image: 'john-rodriguez.jpg' })
+  constructor(public navCtrl: NavController, public navParams: NavParams, private trainerProvider: TrainerProvider) {
+    //this.trainers.push({ name: 'John Edisson Rodriguez', profession: 'Personal Trainer', image: 'john-rodriguez.jpg' })
     //this.trainers.push({ name: 'Mayra Liliana Sanabria', profession: 'Personal Trainer', image: 'lili.png' });
-    this.trainers.push({ name: 'Irina Whatson', profession: 'Personal Trainer', image: 'irina.jpg' });
+    //this.trainers.push({ name: 'Irina Whatson', profession: 'Personal Trainer', image: 'irina.jpg' });
+    this.getTrainerList();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TrainersPage');
+  }
+
+  getTrainerList() {
+    this.trainerProvider.getTrainers().subscribe(trainers => {
+      this.trainers = trainers;
+    });
   }
 
   viewTrainerInfo(trainer:any) {
