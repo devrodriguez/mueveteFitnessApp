@@ -4,18 +4,21 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 import { TrainersPage } from  '../pages/trainers/trainers';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TrainerPage } from '../pages/trainer/trainer';
+import { ContactoPage } from '../pages/contacto/contacto';
+import { ProductsPage } from '../pages/products/products';
 
 @NgModule({
   declarations: [
     MyApp,
+    ContactoPage,
     HomePage,
-    ListPage,
+    ProductsPage,
     TrainerPage,
     TrainersPage,
   ],
@@ -25,9 +28,10 @@ import { TrainerPage } from '../pages/trainer/trainer';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    ContactoPage,
     MyApp,
     HomePage,
-    ListPage,
+    ProductsPage,
     TrainerPage,
     TrainersPage
   ],

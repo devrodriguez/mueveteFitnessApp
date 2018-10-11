@@ -18,9 +18,9 @@ export class TrainersPage {
   public trainers: any = new Array();
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.trainers.push({name: 'John Rodriguez', profession: 'Personal Trainer'})
-    this.trainers.push({name: 'Lili Sanabria', profession: 'Personal Trainer'})
-    this.trainers.push({name: 'John Galvis', profession: 'Personal Trainer'})
+    this.trainers.push({ name: 'John Edisson Rodriguez', profession: 'Personal Trainer', image: 'john-rodriguez.jpg' })
+    //this.trainers.push({ name: 'Mayra Liliana Sanabria', profession: 'Personal Trainer', image: 'lili.png' });
+    this.trainers.push({ name: 'Irina Whatson', profession: 'Personal Trainer', image: 'irina.jpg' });
   }
 
   ionViewDidLoad() {

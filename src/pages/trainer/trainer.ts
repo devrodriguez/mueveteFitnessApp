@@ -16,14 +16,15 @@ export class TrainerPage {
   public trainer: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.trainer = this.navParams.get('trainer');    
+    this.trainer = this.navParams.get('trainer');
   }
 
   ngOnInit(): void {
+    console.log(this.navParams);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrainerPage');
+    
   }
 
 }
