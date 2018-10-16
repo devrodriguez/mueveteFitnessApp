@@ -29,6 +29,9 @@ export class TrainersPage {
   getTrainerList() {
     this.trainerProvider.getTrainers().subscribe(trainers => {
       this.trainers = trainers;
+    },
+    err => {
+      console.log(err)
     });
   }
 

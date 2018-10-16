@@ -17,9 +17,9 @@
   <ion-list>
     <ion-item *ngFor="let trainer of trainers">
       <ion-thumbnail item-start>
-      <img src="assets/imgs/trainers/{{trainer.image}}">
+        <img src="{{ trainer.image_url }}">
       </ion-thumbnail>
-      <h2>{{ trainer.name }}</h2>
+      <h2>{{ trainer.first_name }} {{ trainer.last_name }}</h2>
       <p>{{ trainer.profession }}</p>
       <button ion-button clear item-end (click)="viewTrainerInfo(trainer)">View</button>
     </ion-item>

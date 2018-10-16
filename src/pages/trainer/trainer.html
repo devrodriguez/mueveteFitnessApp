@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h1>{{ trainer.name }}</h1>
+  <h1>{{ trainer.name }} {{ trainer.last_name }}</h1>
   <p>{{ trainer.profession }}</p>
-  <img src="assets/imgs/trainers/{{trainer.image}}">
+  <img src="{{trainer.image_url}}">
 </ion-content>
