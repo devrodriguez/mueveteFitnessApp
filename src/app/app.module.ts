@@ -18,7 +18,7 @@ import { ProductsPage } from '../pages/products/products';
 
 // Providers
 import { TrainerProvider } from '../providers/trainer/trainer';
-import { ProfessionProvider } from '../providers/profession/profession';
+//import { ProfessionProvider } from '../providers/profession/profession';
 
 @NgModule({
   declarations: [
@@ -47,8 +47,8 @@ import { ProfessionProvider } from '../providers/profession/profession';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TrainerProvider,
-    ProfessionProvider
+    TrainerProvider
+    //ProfessionProvider
   ]
 })
 export class AppModule {}
