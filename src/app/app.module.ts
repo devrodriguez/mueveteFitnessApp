@@ -1,54 +1,33 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { RouteReuseStrategy } from '@angular/router';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
-// Pages
-import { TrainerPage } from '../pages/trainer/trainer';
-import { ContactoPage } from '../pages/contacto/contacto';
-import { TrainersPage } from  '../pages/trainers/trainers';
-import { ProductsPage } from '../pages/products/products';
-
-// Providers
-import { TrainerProvider } from '../providers/trainer/trainer';
-//import { ProfessionProvider } from '../providers/profession/profession';
+import { RoutineService } from './services/routine.service';
+import { SessionService } from './services/session.service';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    ContactoPage,
-    HomePage,
-    ProductsPage,
-    TrainerPage,
-    TrainersPage,
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
-    HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    ContactoPage,
-    MyApp,
-    HomePage,
-    ProductsPage,
-    TrainerPage,
-    TrainersPage
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TrainerProvider
-    //ProfessionProvider
-  ]
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    RoutineService,
+    SessionService
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

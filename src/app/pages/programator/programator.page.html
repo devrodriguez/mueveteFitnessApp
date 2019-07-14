@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Programar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-divider>
+      <ion-label>
+        <ion-icon name="sunny"></ion-icon>
+        Mañana
+      </ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let item of morning">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-button color="success" size="small" slot="end" (click)="presentToast(item)">Agendar</ion-button>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>
+        <ion-icon name="moon"></ion-icon>
+        Tarde
+      </ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let item of afternoon">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-button color="success" size="small" slot="end" (click)="presentToast(item)">Agendar</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-button color="warning" expand="full" (click)="closeModal()">Cerrar</ion-button>
+</ion-content>
