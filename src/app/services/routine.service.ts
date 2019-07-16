@@ -9,6 +9,6 @@ export class RoutineService {
   constructor(private http: HttpClient) { }
 
   getRoutines() {
-    return this.http.get(`http://192.168.0.16:8000/routines`);
+    return this.http.get(`http://api.muevetefitness.com.co/routines`);
   }
 }

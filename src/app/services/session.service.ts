@@ -9,6 +9,10 @@ export class SessionService {
   constructor(private http: HttpClient) { }
 
   getSessions() {
-    return this.http.get(`http://192.168.0.16:8000/sessions`);
+    return this.http.get(`http://api.muevetefitness.com.co/sessions`);
+  }
+
+  scheduleSession(data) {
+    return this.http.post(`http://api.muevetefitness.com.co/sessions/schedule`, data);
   }
 }
