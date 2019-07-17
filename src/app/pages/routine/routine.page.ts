@@ -13,11 +13,6 @@ export class RoutinePage implements OnInit {
   public routines: any = [];
 
   constructor(private modalCtrl: ModalController, private routineService: RoutineService) { 
-    /*
-    this.routines.push({name:'Baile Arabe'});
-    this.routines.push({name:'Zumba'});
-    this.routines.push({name:'Fit Combat'});
-    */
 
     this.routineService.getRoutines().subscribe(data => {
       this.routines = data;
@@ -27,9 +22,12 @@ export class RoutinePage implements OnInit {
   ngOnInit() {
   }
 
-  async presentModal() {
+  async presentModal(routine) {
     const modal = await this.modalCtrl.create({
-      component: ProgramatorPage
+      component: ProgramatorPage,
+      componentProps: {
+        '_routine': routine.id
+      }
     });
 
     return await modal.present();

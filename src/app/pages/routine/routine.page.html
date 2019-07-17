@@ -13,7 +13,7 @@
   <ion-list *ngFor="let routine of routines">
     <ion-item>
       {{routine.name}}
-      <ion-button color="success" slot="end" size="small" (click)="presentModal()">Ver Agenda</ion-button>
+      <ion-button color="success" slot="end" size="small" (click)="presentModal(routine)">Ver Agenda</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

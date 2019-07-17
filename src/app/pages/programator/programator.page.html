@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Fecha</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="currDate"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="currDate" (ionChange)="dateChange($event)"></ion-datetime>
   </ion-item>
   <ion-list>
     <ion-item-divider>
@@ -18,7 +18,7 @@
     </ion-item-divider>
     <ion-item *ngFor="let item of morning">
       <ion-label>{{item.name}}</ion-label>
-      <ion-button color="success" size="small" slot="end" (click)="schedule(item)">Agendar</ion-button>
+      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.session_id != null">Agendar</ion-button>
     </ion-item>
     <ion-item-divider>
       <ion-label>
@@ -28,7 +28,7 @@
     </ion-item-divider>
     <ion-item *ngFor="let item of afternoon">
       <ion-label>{{item.name}}</ion-label>
-      <ion-button color="success" size="small" slot="end" (click)="schedule(item)">Agendar</ion-button>
+      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.session_id != null">Agendar</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
