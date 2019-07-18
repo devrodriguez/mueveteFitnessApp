@@ -26,7 +26,8 @@ export class RoutinePage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ProgramatorPage,
       componentProps: {
-        '_routine': routine.id
+        '_routine': routine.id,
+        '_routine_name': routine.name
       }
     });
 

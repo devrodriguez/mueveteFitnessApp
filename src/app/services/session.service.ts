@@ -11,7 +11,11 @@ export class SessionService {
 
   constructor(private http: HttpClient) { }
 
-  getSessions(date: string, routine: string) {
+  getSessions() {
+    return this.http.get(`${this.appConfig.apiUrl}/sessions`);
+  }
+
+  getScheduled(date: string, routine: string) {
     return this.http.get(`${this.appConfig.apiUrl}/sessions/schedule/${date}/${routine}`);
   }
 

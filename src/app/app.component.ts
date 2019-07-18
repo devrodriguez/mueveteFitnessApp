@@ -18,17 +18,17 @@ export class AppComponent {
     {
       title: 'Productos',
       url: '/product',
-      icon: 'list'
+      icon: 'basket'
     },
     {
       title: 'Contacto',
       url: '/contact',
-      icon: 'list'
+      icon: 'book'
     },
     {
       title: 'Rutinas',
       url: '/routine',
-      icon: 'list'
+      icon: 'time'
     }
   ];
 
