@@ -10,12 +10,12 @@ import { RoutineService } from 'src/app/services/routine.service';
 })
 export class RoutinePage implements OnInit {
 
-  public routines: any = [];
+  public categories: any = [];
 
   constructor(private modalCtrl: ModalController, private routineService: RoutineService) { 
 
     this.routineService.getRoutines().subscribe(data => {
-      this.routines = data;
+      this.categories = data;
     });
   }
 

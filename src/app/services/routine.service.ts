@@ -12,6 +12,6 @@ export class RoutineService {
   constructor(private http: HttpClient) { }
 
   getRoutines() {
-    return this.http.get(`${this.appConfig.apiUrl}/routines`);
+    return this.http.get(`${this.appConfig.apiUrl}/categories/routines`);
   }
 }
