@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, LoadingController } from '@ionic/angular';
 import { ProgramatorPage } from '../../pages/programator/programator.page';
 import { RoutineService } from 'src/app/services/routine.service';
 
@@ -11,15 +11,41 @@ import { RoutineService } from 'src/app/services/routine.service';
 export class RoutinePage implements OnInit {
 
   public categories: any = [];
+  public loading: any;
 
-  constructor(private modalCtrl: ModalController, private routineService: RoutineService) { 
+  constructor(private modalCtrl: ModalController, 
+              private routineService: RoutineService,
+              private loadingCtrl: LoadingController) { 
 
-    this.routineService.getRoutines().subscribe(data => {
-      this.categories = data;
-    });
+    this.loadRoutines();
   }
 
   ngOnInit() {
+  }
+
+  loadRoutines() {
+    this.loadingOn()
+    .then(() => {
+      this.routineService.getRoutines().subscribe(data => {
+        this.categories = data;
+        this.loadingOff();
+      }, error => {
+        this.loadingOff();
+      });
+    });
+  }
+
+  async loadingOn() {
+    this.loading = await this.loadingCtrl.create({
+      message: null,
+      spinner: 'dots'
+    });
+
+    return this.loading.present();
+  }
+
+  async loadingOff() {
+    return await this.loadingCtrl.dismiss();
   }
 
   async presentModal(routine) {

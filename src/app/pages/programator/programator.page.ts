@@ -41,7 +41,7 @@ export class ProgramatorPage implements OnInit {
 
   schedule(item) {
     var schedule = {
-      customer: 1,
+      customer: sessionStorage.getItem('c'),
       calendar: item.calendar_id
     };
 

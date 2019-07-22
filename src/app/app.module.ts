@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RoutineService } from './services/routine.service';
 import { SessionService } from './services/session.service';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { SessionService } from './services/session.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     RoutineService,
-    SessionService
+    SessionService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

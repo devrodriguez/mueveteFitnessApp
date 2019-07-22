@@ -13,19 +13,21 @@
     <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="currDate" (ionChange)="dateChange($event)"></ion-datetime>
   </ion-item>
   <ion-list>
-    <ion-item-divider>
+    <ion-item-divider color="tertiary" class="ion-text-uppercase">
       <ion-icon name="sunny" slot="start"></ion-icon>
       <ion-label>Mañana</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of morning">
+      <ion-icon name="alarm" slot="start"></ion-icon>
       <ion-label>{{item.name}}</ion-label>
       <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.customer_id != null">Agendar</ion-button>
     </ion-item>
-    <ion-item-divider>
+    <ion-item-divider color="tertiary" class="ion-text-uppercase">
       <ion-icon name="moon" slot="start"></ion-icon>
       <ion-label>Tarde</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of afternoon">
+        <ion-icon name="alarm" slot="start"></ion-icon>
       <ion-label>{{item.name}}</ion-label>
       <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.customer_id != null">Agendar</ion-button>
     </ion-item>
