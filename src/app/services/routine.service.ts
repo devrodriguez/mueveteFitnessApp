@@ -11,10 +11,14 @@ export class RoutineService {
   private httpHeaders: HttpHeaders = new HttpHeaders();
 
   constructor(private http: HttpClient) { 
-    this.httpHeaders = new HttpHeaders({ 'Authorization' :  sessionStorage.getItem('jwt')})
+    // this.httpHeaders = new HttpHeaders({ 
+    //   'Authorization' : sessionStorage.getItem('jwt'),
+    //   'Access-Control-Allow-Origin': 'http://localhost'
+    // });
   }
 
   getRoutines() {
-    return this.http.get(`${this.appConfig.apiUrl}/categories/routines`, { headers: this.httpHeaders });
+    //return this.http.get(`${this.appConfig.apiUrl}/categories/routines`, { headers: this.httpHeaders });
+    return this.http.get(`${this.appConfig.apiUrl}/categories/routines`);
   }
 }

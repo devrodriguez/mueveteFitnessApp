@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConfig } from '../app-config';
 
 @Injectable({
@@ -8,8 +8,11 @@ import { AppConfig } from '../app-config';
 export class SessionService {
 
   private appConfig: AppConfig = new AppConfig();
+  private httpHeaders: HttpHeaders = new HttpHeaders();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    //this.httpHeaders = new HttpHeaders({ 'Authorization' : sessionStorage.getItem('jwt')});
+  }
 
   getSessions() {
     return this.http.get(`${this.appConfig.apiUrl}/sessions`);

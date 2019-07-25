@@ -1,6 +1,6 @@
 export class AppConfig {
-    private host: string = "192.168.0.27";
-    private port: string = ':8000';
+    private host: string = "api.muevetefitness.com.co";
+    private port: string = '';
 
     public apiUrl : string = `http://${this.host}${this.port}`;
 }
