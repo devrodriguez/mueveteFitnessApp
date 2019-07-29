@@ -12,12 +12,14 @@ export class ProgramatorPage implements OnInit {
 
   @Input() _routine: string;
   @Input() _routine_name: string;
+  @Input() _customer_id: string;
 
   private morning: any = [];
   private afternoon: any = [];
   private currDate: string = moment().format('DD/MM/YYYY');
   private routine: string = '';
   private routine_name: string;
+  private customer_id: string;
 
   constructor(private modalCtrl: ModalController, 
     private toastCtrl: ToastController,
@@ -25,6 +27,7 @@ export class ProgramatorPage implements OnInit {
     private navParams: NavParams) { 
       this.routine = navParams.get('_routine');
       this.routine_name = navParams.get('_routine_name');
+      this.customer_id = navParams.get('_customer_id');
       this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
       this.getScheduled(this.currDate);
     }
@@ -33,7 +36,7 @@ export class ProgramatorPage implements OnInit {
   }
 
   getScheduled(date) {
-    this.sessionService.getScheduled(date, this.routine).subscribe((data: Array<object>) => {
+    this.sessionService.getScheduled(date, this.routine, this.customer_id).subscribe((data: Array<object>) => {
       this.morning = data.filter(dat => dat['period'] == "am");
       this.afternoon = data.filter(dat => dat['period'] == "pm");
     });

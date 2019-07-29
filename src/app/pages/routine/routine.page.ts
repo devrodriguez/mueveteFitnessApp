@@ -12,11 +12,12 @@ export class RoutinePage implements OnInit {
 
   public categories: any = [];
   public loading: any;
+  public customer_id: any = null;
 
   constructor(private modalCtrl: ModalController, 
               private routineService: RoutineService,
               private loadingCtrl: LoadingController) { 
-
+    this.customer_id = sessionStorage.getItem('c');
     this.loadRoutines();
   }
 
@@ -53,7 +54,8 @@ export class RoutinePage implements OnInit {
       component: ProgramatorPage,
       componentProps: {
         '_routine': routine.id,
-        '_routine_name': routine.name
+        '_routine_name': routine.name,
+        '_customer_id': this.customer_id
       }
     });
 

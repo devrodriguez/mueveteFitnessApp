@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -16,22 +18,42 @@ export class RegisterPage implements OnInit {
     age: 0
   };
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, 
+              private router: Router,
+              private alertCtrl: AlertController) { }
 
   ngOnInit() {
   }
 
-  register(form) {
+  register(form: NgForm) {
     this.user.name = form.value.name;
     this.user.email = form.value.email;
     this.user.password = form.value.password;
 
     this.loginService.register(this.user).subscribe(response => {
-      form.reset();
-      this.router.navigateByUrl('login');
+      console.log('Respuesta: ', response);
+      if(response['status'] == 201) {
+        form.reset();
+        this.router.navigateByUrl('login');
+      } else {
+        this.alertPresent('Error al registrar usuario');
+      }
     }, error => {
       console.log(error);
+      this.alertPresent('Error al registrar usuario');
     });
+  }
+
+  async alertPresent(message: string) {
+    const alert = await this.alertCtrl.create({
+      message: message,
+      buttons: [{
+        text: 'Entendido',
+        role: 'cancel'
+      }]
+    });
+
+    await alert.present();
   }
 
 }

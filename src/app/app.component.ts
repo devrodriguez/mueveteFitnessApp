@@ -53,7 +53,7 @@ export class AppComponent {
   logout(){
     sessionStorage.removeItem('jwt');
     sessionStorage.removeItem('c');
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('login', {replaceUrl:true});
     this.menuCtrl.close();
   }
 }

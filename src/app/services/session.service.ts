@@ -18,8 +18,8 @@ export class SessionService {
     return this.http.get(`${this.appConfig.apiUrl}/sessions`);
   }
 
-  getScheduled(date: string, routine: string) {
-    return this.http.get(`${this.appConfig.apiUrl}/sessions/schedule/${date}/${routine}`);
+  getScheduled(date: string, routine: string, customer_id: string) {
+    return this.http.get(`${this.appConfig.apiUrl}/sessions/schedule/${date}/${routine}/${customer_id}`);
   }
 
   scheduleSession(data) {
