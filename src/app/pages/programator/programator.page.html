@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-progress-bar type="indeterminate" *ngIf="showProgress"></ion-progress-bar>
   <div ion-text-center>
     <h2>{{routine_name}}</h2>
   </div>
@@ -20,7 +21,12 @@
     <ion-item *ngFor="let item of morning">
       <ion-icon name="alarm" slot="start"></ion-icon>
       <ion-label>{{item.name}}</ion-label>
-      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.customer_id != null">Agendar</ion-button>
+      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" *ngIf="item.customer_id == null" [disabled]="item.customer_id != null">
+        <ion-icon name="checkmark-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" size="small" slot="end" (click)="cancel(item)" *ngIf="item.customer_id != null" [disabled]="item.customer_id == null">
+        <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item-divider color="tertiary" class="ion-text-uppercase">
       <ion-icon name="moon" slot="start"></ion-icon>
@@ -29,7 +35,12 @@
     <ion-item *ngFor="let item of afternoon">
         <ion-icon name="alarm" slot="start"></ion-icon>
       <ion-label>{{item.name}}</ion-label>
-      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" [disabled]="item.customer_id != null">Agendar</ion-button>
+      <ion-button color="success" size="small" slot="end" (click)="schedule(item)" *ngIf="item.customer_id == null" [disabled]="item.customer_id != null">
+        <ion-icon name="checkmark-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" size="small" slot="end" (click)="cancel(item)" *ngIf="item.customer_id != null" [disabled]="item.customer_id == null">
+        <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

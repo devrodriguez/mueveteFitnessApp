@@ -13,6 +13,7 @@ export class RegisterPage implements OnInit {
 
   private user = {
     name: '',
+    last_name: '',
     email: '',
     password: '',
     age: 0
@@ -27,19 +28,18 @@ export class RegisterPage implements OnInit {
 
   register(form: NgForm) {
     this.user.name = form.value.name;
+    this.user.last_name = form.value.last_name;
     this.user.email = form.value.email;
     this.user.password = form.value.password;
 
     this.loginService.register(this.user).subscribe(response => {
-      console.log('Respuesta: ', response);
       if(response['status'] == 201) {
-        form.reset();
         this.router.navigateByUrl('login');
+        form.reset();
       } else {
         this.alertPresent('Error al registrar usuario');
       }
     }, error => {
-      console.log(error);
       this.alertPresent('Error al registrar usuario');
     });
   }

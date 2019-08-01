@@ -20,6 +20,7 @@ export class ProgramatorPage implements OnInit {
   private routine: string = '';
   private routine_name: string;
   private customer_id: string;
+  private showProgress: boolean = false;
 
   constructor(private modalCtrl: ModalController, 
     private toastCtrl: ToastController,
@@ -43,21 +44,45 @@ export class ProgramatorPage implements OnInit {
   }
 
   schedule(item) {
+    this.showProgress = true;
     var schedule = {
+      weekly: item.weekly_id,
       customer: sessionStorage.getItem('c'),
-      calendar: item.calendar_id
+      date: this.currDate
     };
 
     this.sessionService.scheduleSession(schedule).subscribe(data => {
       item.customer_id = 0
+      this.showProgress = false;
       this.presentToast(`Clase agendada ${item.name} ${item.period}`);
     }, error => {
+      this.showProgress = false;
       this.presentToast(`No fue posible agendar en horario ${item.name}`);
     });
   }
 
+  cancel(item) {
+    this.showProgress = true;
+    var schedule = {
+      weekly: item.weekly_id,
+      customer: sessionStorage.getItem('c'),
+      date: this.currDate
+    };
+
+    this.sessionService.cancelScheduled(schedule).subscribe(data => {
+      item.customer_id = null;
+      this.showProgress = false;
+      this.presentToast(`Clase ${item.name} ${item.period} cancelada`);
+    }, error => {
+      this.showProgress = false;
+      this.presentToast(`No fue posible cancelar en horario ${item.name}`);
+    });
+  }
+
   dateChange(event) {
-    this.getScheduled(moment(event.detail.value).format('YYYY-MM-DD'));
+    console.log(event);
+    this.currDate = moment(event.detail.value).format('YYYY-MM-DD');
+    this.getScheduled(this.currDate);
   }
 
   async presentToast(message) {

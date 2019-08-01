@@ -32,8 +32,8 @@ export class LoginPage implements OnInit {
     this.loginService.login(this.user).subscribe(response => {
       sessionStorage.setItem('jwt', response['data']['token']);
       sessionStorage.setItem('c', response['data']['c']);
-      form.reset();
       this.router.navigateByUrl('home');
+      form.reset();
     }, error => {
       console.log('Error on connection');
       this.alertPresent('Usuario o contraseña incorrectos');

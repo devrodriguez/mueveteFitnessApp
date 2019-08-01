@@ -9,18 +9,32 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    loadChildren: './pages/home/home.module#HomePageModule'
   },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
+  { 
+    path: 'contact', 
+    loadChildren: './pages/contact/contact.module#ContactPageModule' 
   },
-  { path: 'contact', loadChildren: './pages/contact/contact.module#ContactPageModule' },
-  { path: 'product', loadChildren: './pages/product/product.module#ProductPageModule' },
-  { path: 'trainer', loadChildren: './pages/trainer/trainer.module#TrainerPageModule' },
-  { path: 'routine', loadChildren: './pages/routine/routine.module#RoutinePageModule' },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
+  { 
+    path: 'product', 
+    loadChildren: './pages/product/product.module#ProductPageModule' 
+  },
+  { 
+    path: 'trainer', 
+    loadChildren: './pages/trainer/trainer.module#TrainerPageModule' 
+  },
+  { 
+    path: 'routine', 
+    loadChildren: './pages/routine/routine.module#RoutinePageModule' 
+  },
+  { 
+    path: 'register', 
+    loadChildren: './pages/register/register.module#RegisterPageModule' 
+  },
+  { 
+    path: 'login', 
+    loadChildren: './pages/login/login.module#LoginPageModule' 
+  }
 ];
 
 @NgModule({

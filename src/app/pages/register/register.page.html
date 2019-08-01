@@ -17,6 +17,16 @@
               ngModel 
               required></ion-input>
             </ion-item>
+            <ion-item [ngClass]="{'invalid-control': lastName.errors?.minlength}">
+              <ion-input 
+              name="last_name" 
+              type="text" 
+              placeholder="Apellido" 
+              minlength="4"
+              #lastName="ngModel"
+              ngModel 
+              required></ion-input>
+            </ion-item>
             <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
               <ion-input 
               name="email" 
