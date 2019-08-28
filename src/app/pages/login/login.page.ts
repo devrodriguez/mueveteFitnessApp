@@ -25,7 +25,6 @@ export class LoginPage implements OnInit {
   }
 
   login(form: NgForm){
-    console.log(form.controls);
     this.user.email = form.value.email;
     this.user.password = form.value.password;
 
