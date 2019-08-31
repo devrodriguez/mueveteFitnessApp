@@ -1,0 +1,30 @@
+<ion-content color="primary" padding>
+  <form #form="ngForm" (ngSubmit)="send(form)">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Recupera tu contraseña</h3>
+          </div>
+          <div>
+            <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
+              <ion-input name="email" 
+              type="email" 
+              placeholder="tu@email.com" 
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+              #email="ngModel" 
+              ngModel 
+              required></ion-input>
+            </ion-item>
+          </div>
+          <div padding-top>
+            <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Recuperar</ion-button>
+          </div>
+          <p class="ion-text-center">
+            <a routerLink="/login" style="color:#eee">Tengo una cuenta</a>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

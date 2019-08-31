@@ -8,13 +8,10 @@
   <ion-progress-bar type="indeterminate" *ngIf="showProgress"></ion-progress-bar>
   <div ion-text-center>
     <h2>{{routine_name}}</h2>
+    <ion-label margin-bottom>{{currDate | date : 'fullDate'}}</ion-label>
   </div>
-  <ion-item>
-    <ion-label>Fecha</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="currDate" (ionChange)="dateChange($event)"></ion-datetime>
-  </ion-item>
   <ion-list>
-    <ion-item-divider color="tertiary" class="ion-text-uppercase">
+    <ion-item-divider color="secondary" class="ion-text-uppercase">
       <ion-icon name="sunny" slot="start"></ion-icon>
       <ion-label>Mañana</ion-label>
     </ion-item-divider>
@@ -28,7 +25,7 @@
         <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item-divider color="tertiary" class="ion-text-uppercase">
+    <ion-item-divider color="secondary" class="ion-text-uppercase">
       <ion-icon name="moon" slot="start"></ion-icon>
       <ion-label>Tarde</ion-label>
     </ion-item-divider>

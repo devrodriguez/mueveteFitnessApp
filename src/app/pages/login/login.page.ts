@@ -34,7 +34,6 @@ export class LoginPage implements OnInit {
       this.router.navigateByUrl('home');
       form.reset();
     }, error => {
-      console.log('Error on connection');
       this.alertPresent('Usuario o contraseña incorrectos');
     });
   }

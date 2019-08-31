@@ -1,8 +1,8 @@
 {
   "name": "muevete-fitness-app",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "John Rodriguez",
+  "homepage": "https://muevetefitness.com.co/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "android": "ionic cordova run android --no-native-run"
+    "android": "ionic cordova run android --no-native-run",
+    "androidp": "ionic cordova run android --no-native-run --prod"
   },
   "private": true,
   "dependencies": {

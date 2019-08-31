@@ -1,12 +1,12 @@
 <ion-content color="primary" padding>
     <form #form="ngForm" (ngSubmit)="login(form)">
       <ion-grid>
-        <ion-row color="primary" justify-content-center>
+        <ion-row justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
             <div text-center>
-              <h3>Login</h3>
+              <h3>Inicia sesion</h3>
             </div>
-            <div padding>
+            <div>
               <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
                 <ion-input name="email" 
                 type="email" 
@@ -16,7 +16,7 @@
                 ngModel 
                 required></ion-input>
               </ion-item>
-              <ion-item [ngClass]="{'invalid-control': password.errors?.minlength}">
+              <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}">
                 <ion-input name="password" 
                 type="password" 
                 placeholder="Contraseña" 
@@ -26,15 +26,20 @@
                 required></ion-input>
               </ion-item>
             </div>
-            <div padding>
-              <ion-button size="medium" type="submit" [disabled]="form.invalid" expand="block">Entrar</ion-button>
+            <div padding-top>
+              <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Entrar</ion-button>
+            </div>
+            <div>
+              <p class="ion-text-center">
+                <a [routerLink]="[ '/forgotten']" style="color:#eee">Olvide mi contraseña</a>
+              </p>
+            </div>
+            <div>
+              <p class="ion-text-center">
+                Si no tienes una cuenta, por favor <a routerLink='/register' style="color:#eee">registrate aqui</a>!
+              </p>
             </div>
           </ion-col>
-        </ion-row>
-        <ion-row>
-          <div padding>
-            Si no tienes una cuenta, por favor <a routerLink='/register' style="color:#eee">registrate aqui</a>!
-          </div>
         </ion-row>
       </ion-grid>
     </form>

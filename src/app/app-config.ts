@@ -1,7 +1,7 @@
 import { environment } from 'src/environments/environment';
 
 export class AppConfig {
-    private host: string = "192.168.0.15";
+    private host: string = "192.168.0.29";
     private port: string = ':8000';
 
     public apiUrl: string;

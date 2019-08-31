@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, LoadingController } from '@ionic/angular';
 import { ProgramatorPage } from '../../pages/programator/programator.page';
 import { RoutineService } from 'src/app/services/routine.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-routine',
@@ -12,12 +13,14 @@ export class RoutinePage implements OnInit {
 
   public categories: any = [];
   public loading: any;
-  public customer_id: any = null;
+  public customerId: any = null;
+  public currDate: string = moment().format('DD/MM/YYYY');
 
   constructor(private modalCtrl: ModalController, 
               private routineService: RoutineService,
               private loadingCtrl: LoadingController) { 
-    this.customer_id = sessionStorage.getItem('c');
+    this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    this.customerId = sessionStorage.getItem('c');
     this.loadRoutines();
   }
 
@@ -27,13 +30,18 @@ export class RoutinePage implements OnInit {
   loadRoutines() {
     this.loadingOn()
     .then(() => {
-      this.routineService.getRoutines().subscribe(data => {
+      this.routineService.getRoutines(this.currDate)
+      .subscribe(data => {
         this.categories = data;
         this.loadingOff();
       }, error => {
         this.loadingOff();
       });
     });
+  }
+
+  dateChange() {
+    this.loadRoutines();
   }
 
   async loadingOn() {
@@ -53,9 +61,10 @@ export class RoutinePage implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ProgramatorPage,
       componentProps: {
-        '_routine': routine.id,
-        '_routine_name': routine.name,
-        '_customer_id': this.customer_id
+        '_routine': routine.routine_id,
+        '_routine_name': routine.routine_name,
+        '_customer_id': this.customerId,
+        '_curr_date': this.currDate
       }
     });
 

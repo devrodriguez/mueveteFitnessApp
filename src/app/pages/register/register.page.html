@@ -4,10 +4,10 @@
       <ion-row>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div text-center>
-            <h3>Crea tu cuenta</h3>
+            <h3>Crear tu cuenta</h3>
           </div>
-          <div padding>
-            <ion-item [ngClass]="{'invalid-control': name.errors?.minlength}">
+          <div>
+            <ion-item margin-top [ngClass]="{'invalid-control': name.errors?.minlength}">
               <ion-input 
               name="name" 
               type="text" 
@@ -17,7 +17,7 @@
               ngModel 
               required></ion-input>
             </ion-item>
-            <ion-item [ngClass]="{'invalid-control': lastName.errors?.minlength}">
+            <ion-item margin-top [ngClass]="{'invalid-control': lastName.errors?.minlength}">
               <ion-input 
               name="last_name" 
               type="text" 
@@ -27,7 +27,7 @@
               ngModel 
               required></ion-input>
             </ion-item>
-            <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
+            <ion-item margin-top [ngClass]="{'invalid-control': email.errors?.pattern}">
               <ion-input 
               name="email" 
               type="email" 
@@ -37,7 +37,7 @@
               ngModel 
               required></ion-input>
             </ion-item>
-            <ion-item [ngClass]="{'invalid-control': password.errors?.minlength}" >
+            <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}" >
               <ion-input 
               name="password" 
               type="password" 
@@ -47,7 +47,7 @@
               ngModel 
               required></ion-input>
             </ion-item>
-            <ion-item [ngClass]="{'invalid-control': confirm.errors?.minlength || password.value != confirm.value }">
+            <ion-item margin-top [ngClass]="{'invalid-control': confirm.errors?.minlength || password.value != confirm.value }">
               <ion-input 
               name="confirm" 
               type="password" 
@@ -58,8 +58,8 @@
               required></ion-input>
             </ion-item>
           </div>
-          <div padding>
-            <ion-button size="medium" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
+          <div margin-top>
+            <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Registrar</ion-button>
           </div>
         </ion-col>
       </ion-row>

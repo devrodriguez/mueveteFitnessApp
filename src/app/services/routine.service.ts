@@ -17,8 +17,8 @@ export class RoutineService {
     // });
   }
 
-  getRoutines() {
+  getRoutines(date: string) {
     //return this.http.get(`${this.appConfig.apiUrl}/categories/routines`, { headers: this.httpHeaders });
-    return this.http.get(`${this.appConfig.apiUrl}/categories/routines`);
+    return this.http.get(`${this.appConfig.apiUrl}/categories/routinesbyday?date=${date}`);
   }
 }

@@ -13,14 +13,15 @@ export class ProgramatorPage implements OnInit {
   @Input() _routine: string;
   @Input() _routine_name: string;
   @Input() _customer_id: string;
+  @Input() _date: string;
 
-  private morning: any = [];
-  private afternoon: any = [];
-  private currDate: string = moment().format('DD/MM/YYYY');
-  private routine: string = '';
-  private routine_name: string;
-  private customer_id: string;
-  private showProgress: boolean = false;
+  public morning: any = [];
+  public afternoon: any = [];
+  public currDate: string;
+  public routine: string = '';
+  public routine_name: string;
+  public customer_id: string;
+  public showProgress: boolean = false;
 
   constructor(private modalCtrl: ModalController, 
     private toastCtrl: ToastController,
@@ -29,15 +30,16 @@ export class ProgramatorPage implements OnInit {
       this.routine = navParams.get('_routine');
       this.routine_name = navParams.get('_routine_name');
       this.customer_id = navParams.get('_customer_id');
-      this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
-      this.getScheduled(this.currDate);
+      this.currDate = navParams.get('_curr_date');;
+      this.getScheduled();
     }
 
   ngOnInit() {
   }
 
-  getScheduled(date) {
-    this.sessionService.getScheduled(date, this.routine, this.customer_id).subscribe((data: Array<object>) => {
+  getScheduled() {
+    this.sessionService.getScheduled(this.currDate, this.routine, this.customer_id)
+    .subscribe((data: Array<object>) => {
       this.morning = data.filter(dat => dat['period'] == "am");
       this.afternoon = data.filter(dat => dat['period'] == "pm");
     });
@@ -51,7 +53,8 @@ export class ProgramatorPage implements OnInit {
       date: this.currDate
     };
 
-    this.sessionService.scheduleSession(schedule).subscribe(data => {
+    this.sessionService.scheduleSession(schedule)
+    .subscribe(data => {
       item.customer_id = 0
       this.showProgress = false;
       this.presentToast(`Clase agendada ${item.name} ${item.period}`);
@@ -69,7 +72,8 @@ export class ProgramatorPage implements OnInit {
       date: this.currDate
     };
 
-    this.sessionService.cancelScheduled(schedule).subscribe(data => {
+    this.sessionService.cancelScheduled(schedule)
+    .subscribe(data => {
       item.customer_id = null;
       this.showProgress = false;
       this.presentToast(`Clase ${item.name} ${item.period} cancelada`);
@@ -79,10 +83,8 @@ export class ProgramatorPage implements OnInit {
     });
   }
 
-  dateChange(event) {
-    console.log(event);
-    this.currDate = moment(event.detail.value).format('YYYY-MM-DD');
-    this.getScheduled(this.currDate);
+  dateChange() {
+    this.getScheduled();
   }
 
   async presentToast(message) {
