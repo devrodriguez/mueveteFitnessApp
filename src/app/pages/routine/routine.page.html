@@ -18,7 +18,7 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Fecha</ion-label>
-    <ion-datetime displayFormat="DDDD, MMMM DD, YYYY" [(ngModel)]="currDate" (ionChange)="dateChange($event)"></ion-datetime>
+    <ion-datetime displayFormat="DDDD, MMMM DD, YYYY" [(ngModel)]="currDate" (ionChange)="dateChange()"></ion-datetime>
   </ion-item>
   <ion-list *ngFor="let category of categories | keyvalue">
     <ion-item-divider color="secondary" class="ion-text-uppercase">
