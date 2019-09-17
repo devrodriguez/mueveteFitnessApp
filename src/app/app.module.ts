@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RoutineService } from './services/routine.service';
 import { SessionService } from './services/session.service';
 import { LoginService } from './services/login.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,8 @@ import { LoginService } from './services/login.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,

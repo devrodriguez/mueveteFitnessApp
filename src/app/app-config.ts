@@ -11,6 +11,6 @@ export class AppConfig {
             this.host = 'api.muevetefitness.com.co';
             this.port = '';
         }
-        this.apiUrl = `http://${this.host}${this.port}`;
+        this.apiUrl = `https://${this.host}${this.port}`;
     }
 }
