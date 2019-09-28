@@ -1,5 +1,5 @@
 <ion-content color="primary" padding>
-    <form #form="ngForm" (ngSubmit)="login(form)">
+    <form #form="ngForm" (ngSubmit)="login()">
       <ion-grid>
         <ion-row justify-content-center>
           <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -12,8 +12,8 @@
                 type="email" 
                 placeholder="tu@email.com" 
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
-                #email="ngModel" 
-                ngModel 
+                [(ngModel)]="user.email" 
+                #email="ngModel"
                 required></ion-input>
               </ion-item>
               <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}">
@@ -21,8 +21,8 @@
                 type="password" 
                 placeholder="Contraseña" 
                 minlength="4" 
+                [(ngModel)]="user.password" 
                 #password="ngModel"
-                ngModel 
                 required></ion-input>
               </ion-item>
             </div>
@@ -31,12 +31,12 @@
             </div>
             <div>
               <p class="ion-text-center">
-                <a [routerLink]="[ '/forgotten']" style="color:#eee">Olvide mi contraseña</a>
+                <a [routerLink]="['/forgotten']" style="color:#eee" replaceUrl="true">Olvide mi contraseña</a>
               </p>
             </div>
             <div>
               <p class="ion-text-center">
-                Si no tienes una cuenta, por favor <a routerLink='/register' style="color:#eee">registrate aqui</a>!
+                Si no tienes una cuenta, por favor <a routerLink='/register' style="color:#eee" replaceUrl="true">registrate aqui</a>!
               </p>
             </div>
           </ion-col>

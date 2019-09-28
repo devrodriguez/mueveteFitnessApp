@@ -11,9 +11,9 @@
               <ion-input name="email" 
               type="email" 
               placeholder="tu@email.com" 
+              #email="ngModel"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
-              #email="ngModel" 
-              ngModel 
+              [(ngModel)]="user.email" 
               required></ion-input>
             </ion-item>
           </div>
@@ -21,7 +21,7 @@
             <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Recuperar</ion-button>
           </div>
           <p class="ion-text-center">
-            <a routerLink="/login" style="color:#eee">Tengo una cuenta</a>
+            <a routerLink="/login" style="color:#eee" replaceUrl="true">Tengo una cuenta</a>
           </p>
         </ion-col>
       </ion-row>

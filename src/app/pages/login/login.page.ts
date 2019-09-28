@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { ToastController, AlertController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
-  private user = {
-    email: '',
-    password: ''
-  };
+  private user: UserModel = {} as UserModel;
 
   constructor(private router: Router, 
     private loginService: LoginService,
@@ -22,17 +20,18 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController) { }
 
   ngOnInit() {
+    if(this.router.getCurrentNavigation().extras.state) {
+      this.user.email = this.router.getCurrentNavigation().extras.state.email;
+    }
   }
 
-  login(form: NgForm){
-    this.user.email = form.value.email;
-    this.user.password = form.value.password;
+  login(){
 
-    this.loginService.login(this.user).subscribe(response => {
+    this.loginService.login(this.user)
+    .subscribe(response => {
       sessionStorage.setItem('jwt', response['data']['token']);
       sessionStorage.setItem('c', response['data']['c']);
-      this.router.navigateByUrl('home');
-      form.reset();
+      this.router.navigateByUrl('home', { replaceUrl: true });
     }, error => {
       this.alertPresent('Usuario o contraseña incorrectos');
     });

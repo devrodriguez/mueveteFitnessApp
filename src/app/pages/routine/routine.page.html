@@ -21,7 +21,7 @@
     <ion-datetime displayFormat="DDDD, MMMM DD, YYYY" [(ngModel)]="currDate" (ionChange)="dateChange()"></ion-datetime>
   </ion-item>
   <ion-list *ngFor="let category of categories | keyvalue">
-    <ion-item-divider color="secondary" class="ion-text-uppercase">
+    <ion-item-divider color="secondary" class="ion-text-uppercase" sticky="true">
       <ion-icon name="body" slot="start"></ion-icon>
       <ion-label>{{category.key}}</ion-label>
     </ion-item-divider>
