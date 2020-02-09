@@ -9,20 +9,52 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <img src="../../assets/img/events/event-1.jpg">
-  <h3>Tu salud y alegria nuestra pasion</h3>
-
-  <p>
-    Variedad de clases grupales y eventos personalizados
-  </p>
+<ion-content>
+  <!-- Heading page -->
+  <div>
+    <ion-slides pager="true" [options]="slidesOpt">
+      <ion-slide>
+        <img src="../../assets/img/events/event-1.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/img/events/event-1.jpg">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="ion-padding">
+    <h3>Tu salud y alegria nuestra pasion</h3>
+    <p>
+      Variedad de clases grupales y eventos personalizados
+    </p>
+  </div>
+  <!-- Headding page end -->
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img src="../../assets/img/events/event-1.jpg">
+        <ion-card>
+          <img src="../../assets/img/events/event-1.jpg">
+          <ion-card-header>
+            <ion-card-subtitle>Ruenueva tu mente</ion-card-subtitle>
+            <ion-card-title>Zumba</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Clases de zumba
+          </ion-card-content>
+        </ion-card>
       </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col>
-        <img src="../../assets/img/events/event-1.jpg">
+        <ion-card>
+          <img src="../../assets/img/events/event-1.jpg">
+          <ion-card-header>
+            <ion-card-subtitle>Ruenueva tu mente</ion-card-subtitle>
+            <ion-card-title>Rumba</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Clases de rumba
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

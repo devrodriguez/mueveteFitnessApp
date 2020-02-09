@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public slidesOpt = {
+    initialSlide: 0,
+    speed: 300,
+    autoplay: true
+  }
+
   constructor() {}
 
 }

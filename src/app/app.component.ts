@@ -16,16 +16,16 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
-    {
-      title: 'Productos',
-      url: '/product',
-      icon: 'basket'
-    },
-    {
-      title: 'Contacto',
-      url: '/contact',
-      icon: 'book'
-    },
+    // {
+    //   title: 'Productos',
+    //   url: '/product',
+    //   icon: 'basket'
+    // },
+    // {
+    //   title: 'Contacto',
+    //   url: '/contact',
+    //   icon: 'book'
+    // },
     {
       title: 'Rutinas',
       url: '/routine',

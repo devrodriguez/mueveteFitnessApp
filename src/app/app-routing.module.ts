@@ -11,18 +11,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './pages/home/home.module#HomePageModule'
   },
-  { 
-    path: 'contact', 
-    loadChildren: './pages/contact/contact.module#ContactPageModule' 
-  },
-  { 
-    path: 'product', 
-    loadChildren: './pages/product/product.module#ProductPageModule' 
-  },
-  { 
-    path: 'trainer', 
-    loadChildren: './pages/trainer/trainer.module#TrainerPageModule' 
-  },
+  // { 
+  //   path: 'contact', 
+  //   loadChildren: './pages/contact/contact.module#ContactPageModule' 
+  // },
+  // { 
+  //   path: 'product', 
+  //   loadChildren: './pages/product/product.module#ProductPageModule' 
+  // },
+  // { 
+  //   path: 'trainer', 
+  //   loadChildren: './pages/trainer/trainer.module#TrainerPageModule' 
+  // },
   { 
     path: 'routine', 
     loadChildren: './pages/routine/routine.module#RoutinePageModule' 

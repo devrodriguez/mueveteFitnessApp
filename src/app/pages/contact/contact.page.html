@@ -10,19 +10,21 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Nombre</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>E-mail</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Mensaje</ion-label>
-      <ion-textarea rows="5"></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <ion-button block outline color="primary">Enviar</ion-button>
+  <form #contactForm="ngForm" (ngSubmit)="saveContact(contactForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="name" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email" name="email"ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Mensaje</ion-label>
+        <ion-textarea rows="5" name="message" ngModel required></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" expand="block" fill="outline" color="primary" [disabled]="!contactForm.valid">Enviar</ion-button>
+  </form>
 </ion-content>

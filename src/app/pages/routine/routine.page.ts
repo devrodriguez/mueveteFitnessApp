@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, LoadingController } from '@ionic/angular';
-import { ProgramatorPage } from '../../pages/programator/programator.page';
+import { ProgramatorPage } from '../../components/programator/programator.page';
 import { RoutineService } from 'src/app/services/routine.service';
 import * as moment from 'moment';
 

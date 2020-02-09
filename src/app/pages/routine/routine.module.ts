@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { RoutinePage } from './routine.page';
-import { ProgramatorPage } from '../programator/programator.page';
-import { ProgramatorPageModule } from '../programator/programator.module';
+import { ProgramatorPage } from '../../components/programator/programator.page';
+import { ProgramatorPageModule } from '../../components/programator/programator.module';
 
 const routes: Routes = [
   {
