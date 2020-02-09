@@ -12,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class ForgottenPage implements OnInit {
 
-  private user: UserModel = {} as UserModel;
+  public user: UserModel = {} as UserModel;
 
   constructor(private loginService: LoginService, private router: Router, private toastCtrl: ToastController) { }
 

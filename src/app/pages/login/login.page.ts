@@ -12,7 +12,7 @@ import { UserModel } from 'src/app/models/user.model';
 })
 export class LoginPage implements OnInit {
 
-  private user: UserModel = {} as UserModel;
+  public user: UserModel = {} as UserModel;
 
   constructor(private router: Router, 
     private loginService: LoginService,

@@ -26,11 +26,10 @@
       <ion-label>{{category.key}}</ion-label>
     </ion-item-divider>
     <ion-list *ngFor="let routine of category.value">
-      <ion-item>
+      <ion-item (click)="presentModal(routine)" button>
         {{routine.routine_name}}
-        <ion-button color="success" slot="end" size="small" (click)="presentModal(routine)">
-          <ion-icon name="book" slot="icon-only"></ion-icon>  
-        </ion-button>
+        <ion-icon name="book" slot="end"></ion-icon>
+        <ion-ripple-effect type="bounded"></ion-ripple-effect>
       </ion-item>
     </ion-list>
   </ion-list>
