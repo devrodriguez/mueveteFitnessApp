@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-progress-bar type="indeterminate" *ngIf="showProgress"></ion-progress-bar>
-  <div ion-text-center>
+  <div ion-text-center class="ion-padding-start">
     <h2>{{routine_name}}</h2>
     <ion-label margin-bottom>{{currDate | date : 'fullDate'}}</ion-label>
   </div>
@@ -42,7 +42,7 @@
   </ion-list>
 </ion-content>
 <ion-footer>
-    <ion-toolbar>
-        <ion-button color="tertiary" expand="full" (click)="closeModal()">Cerrar</ion-button>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-toolbar>
+      <ion-button color="tertiary" expand="full" (click)="closeModal()">Cerrar</ion-button>
+  </ion-toolbar>
+</ion-footer>

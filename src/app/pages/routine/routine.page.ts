@@ -19,9 +19,9 @@ export class RoutinePage implements OnInit {
   constructor(private modalCtrl: ModalController, 
               private routineService: RoutineService,
               private loadingCtrl: LoadingController) { 
-    this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    //this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
     this.customerId = sessionStorage.getItem('c');
-    this.loadRoutines();
+    //this.loadRoutines();
   }
 
   ngOnInit() {
