@@ -14,11 +14,12 @@ export class RoutinePage implements OnInit {
   public categories: any = [];
   public loading: any;
   public customerId: any = null;
-  public currDate: string = moment().format('DD/MM/YYYY');
+  public currDate: string = moment().format('YYYY-MM-DD');
 
   constructor(private modalCtrl: ModalController, 
               private routineService: RoutineService,
               private loadingCtrl: LoadingController) { 
+    console.log(this.currDate)
     //this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
     this.customerId = sessionStorage.getItem('c');
     //this.loadRoutines();
