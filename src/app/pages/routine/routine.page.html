@@ -18,7 +18,10 @@
 <ion-content>
   <ion-item>
     <ion-label>Fecha</ion-label>
-    <ion-datetime displayFormat="DDDD, MMMM DD, YYYY" [(ngModel)]="currDate" (ionChange)="dateChange()"></ion-datetime>
+    <ion-datetime displayFormat="DDDD, MMMM DD, YYYY" 
+    [(ngModel)]="currDate" 
+    (ionChange)="dateChange($event)"
+    monthNames="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"></ion-datetime>
   </ion-item>
   <ion-list *ngFor="let category of categories | keyvalue">
     <ion-item-divider color="secondary" class="ion-text-uppercase" sticky="true">

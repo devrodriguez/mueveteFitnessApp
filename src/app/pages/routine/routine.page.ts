@@ -15,37 +15,44 @@ export class RoutinePage implements OnInit {
   public loading: any;
   public customerId: any = null;
   public currDate: string = moment().format('YYYY-MM-DD');
+  private isLoading: boolean = false;
 
   constructor(private modalCtrl: ModalController, 
               private routineService: RoutineService,
               private loadingCtrl: LoadingController) { 
-    console.log(this.currDate)
     //this.currDate = moment(this.currDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
-    this.customerId = sessionStorage.getItem('c');
-    //this.loadRoutines();
+    this.loadRoutines();
   }
-
+  
   ngOnInit() {
+    this.customerId = sessionStorage.getItem('c');
+  }
+  
+  ngAfterViewInit() {
+    this.currDate = moment().format('YYYY-MM-DD')
   }
 
-  loadRoutines() {
-    this.loadingOn()
-    .then(() => {
-      this.routineService.getRoutines(this.currDate)
-      .subscribe(data => {
-        this.categories = data;
-        this.loadingOff();
-      }, error => {
-        this.loadingOff();
-      });
+  async loadRoutines() {
+    if (!this.isLoading)
+      await this.loadingOn()
+    
+    this.routineService
+    .getRoutines(this.currDate)
+    .subscribe(async data => {
+      this.categories = data;
+      await this.loadingOff();
+    }, async () => {
+      await this.loadingOff();
     });
   }
 
-  dateChange() {
+  dateChange(eve) {
+    console.log('Date change')
     this.loadRoutines();
   }
 
   async loadingOn() {
+    this.isLoading = true;
     this.loading = await this.loadingCtrl.create({
       message: null,
       spinner: 'dots'
@@ -55,7 +62,10 @@ export class RoutinePage implements OnInit {
   }
 
   async loadingOff() {
-    return await this.loadingCtrl.dismiss();
+    if(this.isLoading) {
+      await this.loadingCtrl.dismiss();
+      this.isLoading = false;
+    }
   }
 
   async presentModal(routine) {
