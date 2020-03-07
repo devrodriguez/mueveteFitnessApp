@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './pages/home/home.module#HomePageModule'
+    loadChildren: './pages/routine/routine.module#RoutinePageModule'
   },
   // { 
   //   path: 'contact', 
