@@ -12,12 +12,12 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let product of products">
-      <ion-thumbnail item-start>
-        <img src="assets/img/products/{{product.image}}">
+      <ion-thumbnail slot="start">
+        <img src="http://ecommerce.starqsoft.com/api/images/products/{{product.id}}/{{product.associations.images[0].id}}">
       </ion-thumbnail>
       <ion-label>
-        <h2>{{ product.name }}</h2>
-        {{ product.description }}
+        <h2>{{product.name[0].value}}<br/><small>{{product.manufacturer_name}}</small></h2>
+        <p>{{product.price | currency}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

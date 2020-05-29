@@ -15,10 +15,10 @@ const routes: Routes = [
   //   path: 'contact', 
   //   loadChildren: './pages/contact/contact.module#ContactPageModule' 
   // },
-  // { 
-  //   path: 'product', 
-  //   loadChildren: './pages/product/product.module#ProductPageModule' 
-  // },
+  { 
+    path: 'product', 
+    loadChildren: './pages/product/product.module#ProductPageModule' 
+  },
   // { 
   //   path: 'trainer', 
   //   loadChildren: './pages/trainer/trainer.module#TrainerPageModule' 
